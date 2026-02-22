@@ -1,0 +1,35 @@
+{
+  "name": "morphui",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "db:generate": "npm -w @morphui/db run generate",
+    "db:migrate": "npm -w @morphui/db run migrate",
+    "db:seed": "npm -w @morphui/db run seed",
+    "db:setup": "npm run db:migrate && npm run db:seed",
+    "dev:api": "npm -w @morphui/api run dev",
+    "dev:landing": "npm -w @yoxperience/landing run dev -- --host 0.0.0.0",
+    "dev:dashboard": "npm -w @yoxperience/dashboard run dev",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:landing\" \"npm run dev:dashboard\"",
+    "demo:playwright": "node scripts/client-demo-playwright.mjs",
+    "demo:playwright:headed": "DEMO_HEADLESS=false node scripts/client-demo-playwright.mjs",
+    "demo:challenge:coach": "DEMO_HEADLESS=false node scripts/challenge-coach-playwright.mjs",
+    "yocoolab:companion": "DEMO_HEADLESS=false DEMO_KEEP_OPEN=true node scripts/yocoolab-companion.mjs",
+    "yocoolab:companion:auto": "DEMO_AUTO_MODE=true DEMO_HEADLESS=true node scripts/yocoolab-companion.mjs",
+    "test:api": "npm -w @morphui/api run test",
+    "build:sdk": "npm -w @morphui/sdk run build",
+    "dev:assistant": "npm -w @morphui/assistant run dev",
+    "assistant:chrome": "bash scripts/launch-chrome-cdp.sh",
+    "setup": "npm install && npm run build:sdk && npm run db:setup",
+    "build": "npm run build:sdk && npm run build:landing",
+    "build:landing": "npm -w @yoxperience/landing run build"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "concurrently": "^9.1.0",
+    "playwright": "^1.52.0",
+    "typescript": "^5.7.0"
+  }
+}

@@ -10,8 +10,8 @@
   "dependencies": {
     "@morphui/db": "*",
     "cors": "^2.8.5",
-    "express": "^4.21.0",
-    "nanoid": "^5.0.9"
+    "express": "^4.22.3",
+    "nanoid": "^5.1.16"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

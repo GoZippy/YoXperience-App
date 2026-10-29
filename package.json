@@ -27,8 +27,8 @@
     "build:landing": "npm -w @yoxperience/landing run build"
   },
   "devDependencies": {
-    "@modelcontextprotocol/sdk": "^1.26.0",
-    "concurrently": "^9.1.0",
+    "@modelcontextprotocol/sdk": "^1.32.0",
+    "concurrently": "^9.2.5",
     "playwright": "^1.52.0",
     "typescript": "^5.7.0"
   }
